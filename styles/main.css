@@ -1,0 +1,14 @@
+.input-label {
+  display: inline-block;
+  border-bottom: 1px solid #1C64F2;
+  padding-bottom: 8px;
+}
+.input-form {
+  display: inline-block;
+  border: none;
+  border-bottom: 1px solid #1C64F2;
+  padding-left: 0;
+  padding-right: 0;
+  text-align: right;
+  max-width: 7rem;
+}
