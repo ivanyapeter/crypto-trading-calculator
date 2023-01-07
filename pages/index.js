@@ -13,7 +13,7 @@ export default function Home() {
     leverage: 1,
     entry: 2.09,
     stopLoss: 2.15,
-    targetProfit: 2,
+    targetPrice: 2,
     direction: 'Short'
   });
 

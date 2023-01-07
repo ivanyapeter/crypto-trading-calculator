@@ -1,7 +1,7 @@
 export default function Result({state}) {
   const {
     buyFee, sellFee, accountSize, leverage,
-    entry, stopLoss, targetProfit, direction
+    entry, stopLoss, targetPrice, direction
   } = state;
   const riskLevel = [
     1, 1.5, 2
@@ -19,17 +19,17 @@ export default function Result({state}) {
     idealSize2 = (risk2/(stopLoss-entry)).toFixed(2);
     idealSize3 = (risk3/(stopLoss-entry)).toFixed(2);
 
-    profit1 = (idealSize1*(entry-targetProfit)*(1-sellFee)).toFixed(2);
-    profit2 = (idealSize2*(entry-targetProfit)*(1-sellFee)).toFixed(2);
-    profit3 = (idealSize3*(entry-targetProfit)*(1-sellFee)).toFixed(2);
+    profit1 = (idealSize1*(entry-targetPrice)*(1-sellFee)).toFixed(2);
+    profit2 = (idealSize2*(entry-targetPrice)*(1-sellFee)).toFixed(2);
+    profit3 = (idealSize3*(entry-targetPrice)*(1-sellFee)).toFixed(2);
   } else if ( direction == 'Long' ) {
     idealSize1 = (risk1/(entry-stopLoss)).toFixed(2);
     idealSize2 = (risk2/(entry-stopLoss)).toFixed(2);
     idealSize3 = (risk3/(entry-stopLoss)).toFixed(2);
 
-    profit1 = (idealSize1*(targetProfit-entry)*(1-sellFee)).toFixed(2);
-    profit2 = (idealSize2*(targetProfit-entry)*(1-sellFee)).toFixed(2);
-    profit3 = (idealSize3*(targetProfit-entry)*(1-sellFee)).toFixed(2);
+    profit1 = (idealSize1*(targetPrice-entry)*(1-sellFee)).toFixed(2);
+    profit2 = (idealSize2*(targetPrice-entry)*(1-sellFee)).toFixed(2);
+    profit3 = (idealSize3*(targetPrice-entry)*(1-sellFee)).toFixed(2);
   }
 
   const ISDollar1 = (idealSize1*entry).toFixed(2)
@@ -40,10 +40,22 @@ export default function Result({state}) {
   const im2 = (idealSize2*entry*(1/leverage)).toFixed(2)
   const im3 = (idealSize3*entry*(1/leverage)).toFixed(2)
 
+  const rr = (profit1/risk1)
+
   return (
     <div class="relative overflow-x-auto mt-4">
       <hr />
-      <p className="mt-4 text-gray-500">Results</p>
+      <div className="grid grid-cols-2 mt-4">
+        <div>
+          <p className="text-gray-500">Results</p>
+        </div>
+        <div>
+          <p className="text-right">
+            <span className="border-b-1 pb-2">1:{rr}</span>
+            <span className="text-gray-500 border-b-1 pb-2 pl-2">Risk Ratio</span>
+          </p>
+        </div>
+      </div>
       <div className="relative overflow-x-auto">
         <table className="w-full text-sm text-center mt-4 border border-blue-500">
           <thead className="text-xs uppercase bg-blue-500 ">

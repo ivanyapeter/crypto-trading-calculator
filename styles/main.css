@@ -12,3 +12,7 @@
   text-align: right;
   max-width: 7rem;
 }
+
+.border-b-1 {
+  border-bottom: 1px solid #1C64F2;
+}

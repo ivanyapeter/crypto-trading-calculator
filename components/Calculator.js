@@ -1,7 +1,7 @@
 export default function Calculator({ state, updateValues }) {
   const {
     buyFee, sellFee, accountSize, leverage,
-    entry, stopLoss, targetProfit, direction
+    entry, stopLoss, targetPrice, direction
   } = state;
   return (
     <div>
@@ -107,12 +107,12 @@ export default function Calculator({ state, updateValues }) {
       
       <div className="input-group grid grid-cols-3 gap-2 mt-2">
         <div className="col-span-2">
-          <label className='input-label text-gray-500'>Target Profit</label>
+          <label className='input-label text-gray-500'>Target Price</label>
           <input onChange={(e) =>
             updateValues({
-              targetProfit: e.target.value,
+              targetPrice: e.target.value,
             })}
-            type='number' id='entry' placeholder='TP' value={targetProfit}
+            type='number' id='entry' placeholder='TP' value={targetPrice}
             className='input-form'/>
         </div>
         <div className='text-right'>
