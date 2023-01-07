@@ -5,50 +5,53 @@ export default function Calculator({ state, updateValues }) {
   } = state;
   return (
     <div>
-      <div className="mt-8 mb-4 block max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow-sm">
-        <div class="inline-block w-7 h-7 p-1 align-middle overflow-hidden bg-blue-500 rounded-full">
-          <svg class="text-gray-100 -left-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
-        </div>
 
-        <label className="inline-block text-gray-500 pl-2 pr-2">Setting</label>
-        
-        <input type="checkbox" class="peer inline-block" />
+      <div class="mt-8 mb-4 block max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow-sm">
+        <details class="open:bg-white" open>
+          <summary class="text-gray-500 select-none">
+            <div class="inline-block w-5 h-5 p-1 align-middle overflow-hidden bg-blue-500 rounded-full">
+              <svg class="text-gray-100 -left-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
+            </div>
+            <label className="inline-block pl-1">Setting</label>
+          </summary>
+          <div class="mt-3 text-gray-500">
+          <div className='mt-4'>
+            <div className='grid grid-cols-2 gap-2'>
+              <div>
+                <label className='input-label text-gray-500'>Buy Fee</label>
+                <input onChange={(e) =>
+                  updateValues({
+                    buyFee: e.target.value
+                  })}
+                  type='number' id='buyFee'
+                  placeholder='Buy Fee' value={buyFee}
+                  className='input-form' />
+              </div>
 
-        <div className='hidden peer-checked:block mt-4'>
-          <div className='grid grid-cols-2 gap-2'>
-            <div>
-              <label className='input-label text-gray-500'>Buy Fee</label>
+              <div>
+                <label className='input-label text-gray-500'>Sell Fee</label>
+                <input onChange={(e) =>
+                  updateValues({
+                    sellFee: e.target.value
+                  })}
+                  type='number' id='sellFee'
+                  placeholder='Sell Fee' value={sellFee}
+                  className='input-form'/>
+              </div>
+            </div>
+
+            <div className="w-full mt-4">
+              <label className='input-label text-gray-500'>Account Size</label>
               <input onChange={(e) =>
                 updateValues({
-                  buyFee: e.target.value
+                  accountSize: e.target.value
                 })}
-                type='number' id='buyFee'
-                placeholder='Buy Fee' value={buyFee}
+                type='number' id='accountSize' placeholder='Account Size' value={accountSize}
                 className='input-form' />
             </div>
-
-            <div>
-              <label className='input-label text-gray-500'>Sell Fee</label>
-              <input onChange={(e) =>
-                updateValues({
-                  sellFee: e.target.value
-                })}
-                type='number' id='sellFee'
-                placeholder='Sell Fee' value={sellFee}
-                className='input-form'/>
-            </div>
           </div>
-
-          <div className="w-full mt-4">
-            <label className='input-label text-gray-500'>Account Size</label>
-            <input onChange={(e) =>
-              updateValues({
-                accountSize: e.target.value
-              })}
-              type='number' id='accountSize' placeholder='Account Size' value={accountSize}
-              className='input-form' />
           </div>
-        </div>
+        </details>
       </div>
 
       <div className='leverage mt-4'>
@@ -82,13 +85,13 @@ export default function Calculator({ state, updateValues }) {
             updateValues({
               entry: e.target.value,
               direction: 
-                e.target.value > stopLoss ? 'long' : 'short'
+                e.target.value > stopLoss ? 'Long' : 'Short'
             })}
             type='number' id='entry' placeholder='Entry' value={entry}
             className='input-form'/>
         </div>
 
-        <div className="">
+        <div className='text-right'>
           <label className='input-label text-gray-500'>Stop Loss</label>
           <input onChange={(e) =>
             updateValues({
@@ -101,16 +104,24 @@ export default function Calculator({ state, updateValues }) {
         </div>
 
       </div>
-
-      <div className="mt-4">
-        <label className='input-label text-gray-500'>Target Profit</label>
-        <input onChange={(e) =>
-          updateValues({
-            targetProfit: e.target.value,
-          })}
-          type='number' id='entry' placeholder='TP' value={targetProfit}
-          className='input-form'/>
+      
+      <div className="input-group grid grid-cols-3 gap-2 mt-4">
+        <div className="col-span-2">
+          <label className='input-label text-gray-500'>Target Profit</label>
+          <input onChange={(e) =>
+            updateValues({
+              targetProfit: e.target.value,
+            })}
+            type='number' id='entry' placeholder='TP' value={targetProfit}
+            className='input-form'/>
+        </div>
+        <div className='text-right'>
+          <label className='inline-block input-label text-gray-500 pr-3'>Direction</label>
+          <span className="input-label pt-2">{direction}</span>
+          <span className="text-xs">direction auto detect</span>
+        </div>
       </div>
+      
       
     </div>
   )

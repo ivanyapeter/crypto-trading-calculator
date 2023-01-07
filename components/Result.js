@@ -14,7 +14,7 @@ export default function Result({state}) {
   var idealSize1 = 0, idealSize2 = 0, idealSize3 = 0;
   var profit1 = 0, profit2 = 0, profit3 = 0;
 
-  if (direction == 'short') {
+  if (direction == 'Short') {
     idealSize1 = (risk1/(stopLoss-entry)).toFixed(2);
     idealSize2 = (risk2/(stopLoss-entry)).toFixed(2);
     idealSize3 = (risk3/(stopLoss-entry)).toFixed(2);
@@ -22,7 +22,7 @@ export default function Result({state}) {
     profit1 = (idealSize1*(entry-targetProfit)*(1-sellFee)).toFixed(2);
     profit2 = (idealSize2*(entry-targetProfit)*(1-sellFee)).toFixed(2);
     profit3 = (idealSize3*(entry-targetProfit)*(1-sellFee)).toFixed(2);
-  } else if ( direction == 'long' ) {
+  } else if ( direction == 'Long' ) {
     idealSize1 = (risk1/(entry-stopLoss)).toFixed(2);
     idealSize2 = (risk2/(entry-stopLoss)).toFixed(2);
     idealSize3 = (risk3/(entry-stopLoss)).toFixed(2);

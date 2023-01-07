@@ -9,12 +9,12 @@ export default function Home() {
   const [state, setState] = useState({
     buyFee: 0.04,
     sellFee: 0.02,
-    accountSize: 100,
+    accountSize: 1000,
     leverage: 1,
     entry: 2.09,
     stopLoss: 2.15,
     targetProfit: 2,
-    direction: 'short'
+    direction: 'Short'
   });
 
   const updateValues = (newState) => {
