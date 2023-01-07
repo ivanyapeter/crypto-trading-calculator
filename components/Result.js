@@ -41,12 +41,12 @@ export default function Result({state}) {
   const im3 = (idealSize3*entry*(1/leverage)).toFixed(2)
 
   return (
-    <div class="relative overflow-x-auto mt-10">
+    <div class="relative overflow-x-auto mt-4">
       <hr />
-      <p className="mt-4">Results</p>
+      <p className="mt-4 text-gray-500">Results</p>
       <div className="relative overflow-x-auto">
         <table className="w-full text-sm text-center mt-4 border border-blue-500">
-          <thead className="text-xs uppercase bg-blue-500">
+          <thead className="text-xs uppercase bg-blue-500 ">
             <tr className="text-white">
               <th className="px-2 bg-blue-500"></th>
               <th className="px-3 py-3">%</th>

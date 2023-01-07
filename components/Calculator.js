@@ -6,7 +6,7 @@ export default function Calculator({ state, updateValues }) {
   return (
     <div>
 
-      <div class="mt-8 mb-4 block max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow-sm">
+      <div class="mt-8 block max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow-sm">
         <details class="open:bg-white" open>
           <summary class="text-gray-500 select-none">
             <div class="inline-block w-5 h-5 p-1 align-middle overflow-hidden bg-blue-500 rounded-full">
@@ -54,7 +54,7 @@ export default function Calculator({ state, updateValues }) {
         </details>
       </div>
 
-      <div className='leverage mt-4'>
+      <div className='leverage mt-4 px-4 pt-1 border border-gray-200 rounded-lg'>
         <label for="default-range" class="inline-block input-label text-gray-500 mb-2">Leverage</label>
 
         <input onChange={(e) => {
@@ -105,7 +105,7 @@ export default function Calculator({ state, updateValues }) {
 
       </div>
       
-      <div className="input-group grid grid-cols-3 gap-2 mt-4">
+      <div className="input-group grid grid-cols-3 gap-2 mt-2">
         <div className="col-span-2">
           <label className='input-label text-gray-500'>Target Profit</label>
           <input onChange={(e) =>

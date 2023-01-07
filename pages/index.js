@@ -32,8 +32,8 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className='max-w-sm mx-auto'>
-        <h1 className='text-4xl text-blue-500 mt-4 pb-2 border-b-2 border-blue-500'>Size Calculator</h1>
+      <div className='max-w-sm mx-auto mt-4 mb-4'>
+        <h1 className='text-4xl text-blue-500 pb-2 border-b-2 border-blue-500'>Size Calculator</h1>
         <Calculator state={state} updateValues={updateValues}/>
         <Result state={state} />
       </div>
